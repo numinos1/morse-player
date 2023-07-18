@@ -1,20 +1,28 @@
 {
-  "name": "@numo/cw-player",
+  "name": "morse-player",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc -b ."
   },
   "keywords": [],
   "author": "Andrew Bunker",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "jest": "^29.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
     "@babel/preset-env": "^7.20.2",
-    "babel-jest": "^29.5.0"
+    "@types/node": "20.1.7",
+    "babel-jest": "^29.5.0",
+    "prettier": "^2.8.8",
+    "ts-node": "^10.9.1",
+    "typescript": "~5.0.4"
   }
 }
