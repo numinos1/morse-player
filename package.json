@@ -1,0 +1,20 @@
+{
+  "name": "@numo/cw-player",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Andrew Bunker",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2",
+    "babel-jest": "^29.5.0"
+  }
+}
