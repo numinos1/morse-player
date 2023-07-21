@@ -1,7 +1,11 @@
 {
   "name": "morse-player",
   "version": "1.0.0",
-  "description": "",
+  "description": "Browser morse code audio player",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/numinos1/morse-player.git"
+  },
   "exports": {
     ".": "./dist/index.js"
   },
@@ -10,7 +14,11 @@
     "test": "jest",
     "build": "tsc -b ."
   },
-  "keywords": [],
+  "keywords": [
+    "morse code",
+    "cw player",
+    "amateur radio"
+  ],
   "author": "Andrew Bunker",
   "license": "MIT",
   "dependencies": {
