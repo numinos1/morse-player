@@ -1,0 +1,79 @@
+export const letters = [{
+  name: 'Alpha',
+  value: 'a'
+}, {
+  name: 'Bravo',
+  value: 'b'
+}, {
+  name: 'Charlie',
+  value: 'c'
+}, {
+  name: 'Delta',
+  value: 'd'
+}, {
+  name: 'Echo',
+  value: 'e'
+}, {
+  name: 'Foxtrot',
+  value: 'f'
+}, {
+  name: 'Golf',
+  value: 'g'
+}, {
+  name: 'Hotel',
+  value: 'h'
+}, {
+  name: 'India',
+  value: 'i'
+}, {
+  name: 'Juliet',
+  value: 'j'
+}, {
+  name: 'Kilo',
+  value: 'k'
+}, {
+  name: 'Lima',
+  value: 'l'
+}, {
+  name: 'Mike',
+  value: 'm'
+}, {
+  name: 'November',
+  value: 'n'
+}, {
+  name: 'Oscar',
+  value: 'o'
+}, {
+  name: 'Papa',
+  value: 'p'
+}, {
+  name: 'Quebec',
+  value: 'q'
+}, {
+  name: 'Romeo',
+  value: 'r'
+}, {
+  name: 'Sierra',
+  value: 's'
+}, {
+  name: 'Tango',
+  value: 't'
+}, {
+  name: 'Uniform',
+  value: 'u'
+}, {
+  name: 'Victor',
+  value: 'v'
+}, {
+  name: 'Whiskey',
+  value: 'w'
+}, {
+  name: 'Xray',
+  value: 'x'
+}, {
+  name: 'Yankee',
+  value: 'y'
+}, {
+  name: 'Zulu',
+  value: 'z'
+}];

@@ -14,8 +14,8 @@
     "skipLibCheck": true,
     "strict": true,
     "baseUrl": ".",
-    "rootDir": "lib",
-    "outDir": "dist",
+    "rootDir": "src",
+    "outDir": "lib",
     "declaration": true,
     "removeComments": true,
     "noImplicitAny": false,
@@ -34,7 +34,7 @@
   },
   "exclude": [
     "node_modules", 
-    "dist", 
+    "lib", 
     "test/**/*", 
     "**/*.spec.ts"
   ]
