@@ -1,6 +1,6 @@
 {
   "name": "morse-player",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Browser morse code audio player",
   "author": "Andrew Bunker",
   "license": "MIT",
@@ -19,7 +19,8 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "test": "jest",
-    "build": "tsc -b ."
+    "build": "tsc -b .",
+    "install": "tsc -b ."
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
