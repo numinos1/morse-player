@@ -102,6 +102,14 @@ export class Player extends Emitter {
     return options;
   }
 
+  // Provide a way to init audio without playing
+  // (Must trigger during a button event)
+  init() {
+    if (!this.audio) {
+      this.audio = this._initAudio(this.options.get());
+    }
+  }
+
   // NOTE: Must init audio within a click event
   play(text, options = undefined) {
     this.stop();
