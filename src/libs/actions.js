@@ -2,10 +2,7 @@ import { scrambleList, randomEntry, splitVocab, toList, toNumber, countMap } fro
 import { states as stateList } from '../resources/states';
 import { letters as letterList } from '../resources/letters';
 import { numbers as numberList } from '../resources/numbers';
-
-export const ALPHA = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-export const NUMERIC = '0123456789';
-export const ALPHA_NUMERIC = ALPHA + NUMERIC;
+import { ALPHA, NUMERIC } from '../resources/lists';
 
 // ---------------------------------------------------------
 //                         Verbs
@@ -93,4 +90,26 @@ export function alphanumeric() {
   .concat(numberList.map(number => 
     number.value.toLowerCase()
   ));
+}
+
+// ---------------------------------------------------------
+//                   Callsigns
+// ---------------------------------------------------------
+
+// L{1,2}NL{1,3} (90%)
+// NLNL{1-3} (10%)
+export function callsign(min, max) {
+  return randomEntry(
+      CALLSIGN_FORMATS.filter(format => 
+        format.length >= min && format.length <= max
+      )
+    )
+    .split()
+    .map(format => 
+      randomEntry(
+        format === 'L' 
+          ? ALPHA 
+          : NUMERIC)
+    )
+    .join('');
 }

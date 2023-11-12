@@ -1,0 +1,1299 @@
+// UK 58426
+[
+  {
+    "name": "Afghanistan",
+    "prefix": "T6,YA"
+  },
+  {
+    "name": "Aland Island",
+    "prefix": "OF0,OG0,OH0"
+  },
+  {
+    "name": "Alaska",
+    "prefix": "AL,KL,NL,WL"
+  },
+  {
+    "name": "Albania",
+    "prefix": "ZA"
+  },
+  {
+    "name": "Algeria",
+    "prefix": "7R,7T-7Y"
+  },
+  {
+    "name": "American Samoa",
+    "prefix": "AH8,KH8,KS6,NH8,WH8"
+  },
+  {
+    "name": "Andaman Islands",
+    "prefix": "AT4,AU4,AV4,AW4"
+  },
+  {
+    "name": "Andaman Islands, Nicobar Islands",
+    "prefix": "VU4"
+  },
+  {
+    "name": "Andorra",
+    "prefix": "C3"
+  },
+  {
+    "name": "Angola",
+    "prefix": "D2-D3"
+  },
+  {
+    "name": "Antarctica",
+    "prefix": "3Y,KC4,LZ5,OA0,ZL5"
+  },
+  {
+    "name": "Antigua and Barbuda",
+    "prefix": "V2"
+  },
+  {
+    "name": "Argentina",
+    "prefix": "AY-AZ,L2-L9,LO-LW"
+  },
+  {
+    "name": "Armenia",
+    "prefix": "EK"
+  },
+  {
+    "name": "Aruba",
+    "prefix": "P4"
+  },
+  {
+    "name": "Ascension Island",
+    "prefix": "ZD8"
+  },
+  {
+    "name": "Asiatic Russia",
+    "prefix": "R0,R7,R9,RA0,RA8-RA9,RE0,RE9,RF0,RF9,RG0,RG9,RH0,RH9,RI,RJ0,RJ9,RK0,RK9,RM0,RM9,RN0,RN9,RO0,RO9,RP0,RP9,RR0,RR9,RS0,RS9,RT0,RT9,RU0,RU9,RV0,RV9,RW0,RW9,RX0,RX9,RY0,RY9,RZ0,RZ9,U0,U9,UA0,UA8-UA9,UE0,UE9"
+  },
+  {
+    "name": "Auckland Island, Campbell Island",
+    "prefix": "ZL9,ZM9"
+  },
+  {
+    "name": "Australia",
+    "prefix": "AX,VH-VK,VZ"
+  },
+  {
+    "name": "Austria",
+    "prefix": "OE"
+  },
+  {
+    "name": "Aves Island",
+    "prefix": "YV0,YX0"
+  },
+  {
+    "name": "Azerbaijan",
+    "prefix": "4J-4K"
+  },
+  {
+    "name": "Azores",
+    "prefix": "CQ1,CR8,CS4,CS8,CT8,CU"
+  },
+  {
+    "name": "Bahamas",
+    "prefix": "C6"
+  },
+  {
+    "name": "Bahrain",
+    "prefix": "A9"
+  },
+  {
+    "name": "Baker and Howland Islands",
+    "prefix": "AH1,KH1,NH1,WH1"
+  },
+  {
+    "name": "Balearic Islands",
+    "prefix": "AM6,AN6,AO6,EA6,EB6,EC6,ED6,EE6,EF6,EG6,EH6"
+  },
+  {
+    "name": "Bangladesh",
+    "prefix": "S2-S3"
+  },
+  {
+    "name": "Barbados",
+    "prefix": "8P"
+  },
+  {
+    "name": "Bear Island",
+    "prefix": "JW8"
+  },
+  {
+    "name": "Belarus",
+    "prefix": "EU-EW"
+  },
+  {
+    "name": "Belgium",
+    "prefix": "ON-OS"
+  },
+  {
+    "name": "Belize",
+    "prefix": "V3"
+  },
+  {
+    "name": "Benin",
+    "prefix": "TY"
+  },
+  {
+    "name": "Bermuda",
+    "prefix": "VP9"
+  },
+  {
+    "name": "Bhutan",
+    "prefix": "A5"
+  },
+  {
+    "name": "Blenheim Reef",
+    "prefix": "1B"
+  },
+  {
+    "name": "Bolivia",
+    "prefix": "CP1-CP9"
+  },
+  {
+    "name": "Bonaire",
+    "prefix": "PJ4"
+  },
+  {
+    "name": "Bophuthatswana",
+    "prefix": "H5"
+  },
+  {
+    "name": "Bosnia and Herzegovina",
+    "prefix": "E7"
+  },
+  {
+    "name": "Botswana",
+    "prefix": "8O,A2"
+  },
+  {
+    "name": "Brazil",
+    "prefix": "PP-PY,ZV-ZZ"
+  },
+  {
+    "name": "Brunei",
+    "prefix": "V8"
+  },
+  {
+    "name": "Bulgaria",
+    "prefix": "LZ"
+  },
+  {
+    "name": "Burkina Faso",
+    "prefix": "XT"
+  },
+  {
+    "name": "Burundi",
+    "prefix": "9U"
+  },
+  {
+    "name": "Cambodia, Kampuchea",
+    "prefix": "XU"
+  },
+  {
+    "name": "Cameroon",
+    "prefix": "TJ"
+  },
+  {
+    "name": "Canada",
+    "prefix": "CJ-CK,CY-CZ,VA-VG,VO,VX-VY,XJ-XO",
+    "licenses": 44024
+  },
+  {
+    "name": "Canary Islands",
+    "prefix": "AM8,AN8,AO8,EA8,EB8,EC8,ED8,EE8,EF8,EG8,EH8"
+  },
+  {
+    "name": "Cape Verde",
+    "prefix": "D4"
+  },
+  {
+    "name": "Caribean Islands",
+    "prefix": "XF2-XF3"
+  },
+  {
+    "name": "Cayman Islands",
+    "prefix": "ZF1-ZF2,ZF8-ZF9"
+  },
+  {
+    "name": "Central African Republic",
+    "prefix": "TL"
+  },
+  {
+    "name": "Central European Russia",
+    "prefix": "R3,RA3,RE3,RF3,RG3,RH3,RI3,RJ3,RK3,RN3,RP3,RT3,RU3,RV3,RW3,RX3,RY3,RZ3"
+  },
+  {
+    "name": "Ceuta and Melilla",
+    "prefix": "EA9,EB9,EC9,ED9,EE9,EG9,EH9"
+  },
+  {
+    "name": "Ceuta and Melilla, Ifni",
+    "prefix": "EF9"
+  },
+  {
+    "name": "Ceuta-Melilla",
+    "prefix": "AM9,AN9,AO9"
+  },
+  {
+    "name": "Chad",
+    "prefix": "TT"
+  },
+  {
+    "name": "Chagos",
+    "prefix": "VQ9"
+  },
+  {
+    "name": "Chatham Island",
+    "prefix": "ZL7,ZM7"
+  },
+  {
+    "name": "Chechnya",
+    "prefix": "1C,1X"
+  },
+  {
+    "name": "Chesterfield Island",
+    "prefix": "TX0,TX9"
+  },
+  {
+    "name": "Chile",
+    "prefix": "3G,CA-CE,XQ-XR"
+  },
+  {
+    "name": "China",
+    "prefix": "3H-3U,BA-BL,BS-BU,BW,BY-BZ,XS"
+  },
+  {
+    "name": "Clipperton Island",
+    "prefix": "TX5"
+  },
+  {
+    "name": "Cocos Islands",
+    "prefix": "TE9,TI9"
+  },
+  {
+    "name": "Colombia",
+    "prefix": "5J,HJ-HK"
+  },
+  {
+    "name": "Columbia",
+    "prefix": "5K"
+  },
+  {
+    "name": "Comoros",
+    "prefix": "D6"
+  },
+  {
+    "name": "Congo",
+    "prefix": "TN"
+  },
+  {
+    "name": "Corsica",
+    "prefix": "TK"
+  },
+  {
+    "name": "Costa Rica",
+    "prefix": "TE,TI"
+  },
+  {
+    "name": "Côte d'Ivoire",
+    "prefix": "TU"
+  },
+  {
+    "name": "Crete",
+    "prefix": "SV9,SW9,SX9"
+  },
+  {
+    "name": "Croatia",
+    "prefix": "9A"
+  },
+  {
+    "name": "Cuba",
+    "prefix": "CL-CM,CO,T4"
+  },
+  {
+    "name": "Curacao",
+    "prefix": "PJ2"
+  },
+  {
+    "name": "Cyprus",
+    "prefix": "5B,C4,H2,P3"
+  },
+  {
+    "name": "Czech Republic",
+    "prefix": "OK-OL"
+  },
+  {
+    "name": "Democratic Republic of Congo",
+    "prefix": "9O-9T"
+  },
+  {
+    "name": "Denmark",
+    "prefix": "5P-5Q,OU-OW,OZ,XP"
+  },
+  {
+    "name": "Desecheo Island",
+    "prefix": "KP5,NP5,WP5"
+  },
+  {
+    "name": "Djibouti",
+    "prefix": "J2"
+  },
+  {
+    "name": "Dodecanese Islands",
+    "prefix": "SV5,SW5,SX5"
+  },
+  {
+    "name": "Dominica",
+    "prefix": "J7"
+  },
+  {
+    "name": "Dominican Republic",
+    "prefix": "HI"
+  },
+  {
+    "name": "Ecuador",
+    "prefix": "HC-HD"
+  },
+  {
+    "name": "Egypt",
+    "prefix": "6A-6B,MD5,ME5,SS,SU"
+  },
+  {
+    "name": "El Salvador",
+    "prefix": "HU,YS"
+  },
+  {
+    "name": "England",
+    "prefix": "2E,G,GX,M,MX"
+  },
+  {
+    "name": "Equatorial Guinea",
+    "prefix": "3C"
+  },
+  {
+    "name": "Eritrea",
+    "prefix": "E3"
+  },
+  {
+    "name": "Estonia",
+    "prefix": "ES"
+  },
+  {
+    "name": "Ethiopia",
+    "prefix": "9E-9F,ET"
+  },
+  {
+    "name": "Europa Island",
+    "prefix": "TO4"
+  },
+  {
+    "name": "European Russia",
+    "prefix": "R2,R4,R6,RA2,RA4,RA6,RE2,RE4,RE6,RF2,RF4,RF6,RG2,RG4,RG6,RH2,RH4,RH6,RI2,RI4,RI6,RJ2,RJ4,RJ6,RK2,RK4,RK6,RM2,RN2,RN4,RN6,RP2,RP4,RP6,RQ2,RS2,RT2,RT4,RT6,RU2,RU4,RU6,RV2,RV4,RV6,RW2,RW4,RW6,RX2,RX4,RX6,RY2,RY4,RY6,RZ2,RZ4,RZ6,U,UA,UC-UI"
+  },
+  {
+    "name": "Falkland Islands",
+    "prefix": "VP8"
+  },
+  {
+    "name": "Faroe Islands",
+    "prefix": "OY"
+  },
+  {
+    "name": "Federated States of Micronesia",
+    "prefix": "V6"
+  },
+  {
+    "name": "Finland",
+    "prefix": "OF-OI"
+  },
+  {
+    "name": "France",
+    "prefix": "F,FB,FD-FF,FU-FV,HW-HY,TH,TM,TO-TQ,TV-TX"
+  },
+  {
+    "name": "French amateur radio satellites",
+    "prefix": "FX"
+  },
+  {
+    "name": "French Guiana",
+    "prefix": "FY,TO9"
+  },
+  {
+    "name": "French Polynesia",
+    "prefix": "TO8"
+  },
+  {
+    "name": "Gabon",
+    "prefix": "TR"
+  },
+  {
+    "name": "Galapagos Islands",
+    "prefix": "HC8,HD8"
+  },
+  {
+    "name": "Georgia",
+    "prefix": "4L"
+  },
+  {
+    "name": "Germany",
+    "prefix": "DA-DP,Y2-Y9",
+    "licenses": 79666
+  },
+  {
+    "name": "Geyser Reef",
+    "prefix": "1G"
+  },
+  {
+    "name": "Ghana",
+    "prefix": "9G"
+  },
+  {
+    "name": "Gibraltar",
+    "prefix": "ZB"
+  },
+  {
+    "name": "Greece",
+    "prefix": "J4,SV-SZ"
+  },
+  {
+    "name": "Greenland",
+    "prefix": "OX"
+  },
+  {
+    "name": "Grenada",
+    "prefix": "J3"
+  },
+  {
+    "name": "Guadeloupe",
+    "prefix": "FG"
+  },
+  {
+    "name": "Guam",
+    "prefix": "AH2,KG6,KH2,NH2,WH2"
+  },
+  {
+    "name": "Guatemala",
+    "prefix": "TD,TG"
+  },
+  {
+    "name": "Guernsey and Dependencies",
+    "prefix": "2U,GP,GU,MP,MU"
+  },
+  {
+    "name": "Guinea Bissau",
+    "prefix": "J5"
+  },
+  {
+    "name": "Guyana",
+    "prefix": "8R"
+  },
+  {
+    "name": "Haiti",
+    "prefix": "4V,HH"
+  },
+  {
+    "name": "Hawaii",
+    "prefix": "AH6,KH6,NH6,WH6"
+  },
+  {
+    "name": "Honduras",
+    "prefix": "HQ-HR"
+  },
+  {
+    "name": "Hong Kong",
+    "prefix": "VR2"
+  },
+  {
+    "name": "Hungary",
+    "prefix": "HA,HG"
+  },
+  {
+    "name": "Iceland",
+    "prefix": "TF"
+  },
+  {
+    "name": "India",
+    "prefix": "8T-8W,AT-AW,VT-VW"
+  },
+  {
+    "name": "Indian Base in Antarctica",
+    "prefix": "AT0,AT3"
+  },
+  {
+    "name": "Indonesia",
+    "prefix": "7A-7I,8A-8I,JZ,PK-PO,YB-YH"
+  },
+  {
+    "name": "Iran",
+    "prefix": "9B-9D,EP-EQ"
+  },
+  {
+    "name": "Iraq",
+    "prefix": "HN,YI"
+  },
+  {
+    "name": "Irish Republic",
+    "prefix": "EI-EJ"
+  },
+  {
+    "name": "Islands near Taiwan",
+    "prefix": "BV9"
+  },
+  {
+    "name": "Isle of Man",
+    "prefix": "GD,MD"
+  },
+  {
+    "name": "Isle Of Man",
+    "prefix": "2D,GT,MT"
+  },
+  {
+    "name": "Israel",
+    "prefix": "4X,4Z"
+  },
+  {
+    "name": "Italy",
+    "prefix": "I,IA-IL,IN-IR,IU-IZ"
+  },
+  {
+    "name": "Jamaica",
+    "prefix": "6Y"
+  },
+  {
+    "name": "Jan Mayen",
+    "prefix": "JX"
+  },
+  {
+    "name": "Japan",
+    "prefix": "7J-7N,8J-8N,JA-JC,JE-JS",
+    "licenses": 1296059
+  },
+  {
+    "name": "Jersey",
+    "prefix": "2J,GH,GJ,MH,MJ"
+  },
+  {
+    "name": "Johnston Island",
+    "prefix": "AH3,KH3,NH3,WH3"
+  },
+  {
+    "name": "Jordan",
+    "prefix": "JY"
+  },
+  {
+    "name": "Kaliningradsk",
+    "prefix": "U2"
+  },
+  {
+    "name": "Karen State - Myanmar",
+    "prefix": "1Z"
+  },
+  {
+    "name": "Kazakhstan",
+    "prefix": "UN-UO,UQ"
+  },
+  {
+    "name": "Kenya",
+    "prefix": "5Y-5Z"
+  },
+  {
+    "name": "Kermadec Island",
+    "prefix": "ZL8,ZM8"
+  },
+  {
+    "name": "Kinmen Island",
+    "prefix": "BO2"
+  },
+  {
+    "name": "Kiribati",
+    "prefix": "T3"
+  },
+  {
+    "name": "Kuwait",
+    "prefix": "9K"
+  },
+  {
+    "name": "Kyrgyzstan",
+    "prefix": "EX"
+  },
+  {
+    "name": "Laccadive Islands",
+    "prefix": "AT7,AU7,AV7,AW7,VU7"
+  },
+  {
+    "name": "Laos",
+    "prefix": "XW"
+  },
+  {
+    "name": "Latvia",
+    "prefix": "YL"
+  },
+  {
+    "name": "Lebanon",
+    "prefix": "OD"
+  },
+  {
+    "name": "Lesotho",
+    "prefix": "7P"
+  },
+  {
+    "name": "Liberia",
+    "prefix": "5L-5M,6Z,A8,D5,EL"
+  },
+  {
+    "name": "Libya",
+    "prefix": "5A"
+  },
+  {
+    "name": "Liechtenstein",
+    "prefix": "HB0,HE0"
+  },
+  {
+    "name": "Lithuania",
+    "prefix": "LY"
+  },
+  {
+    "name": "Luxembourg",
+    "prefix": "LX"
+  },
+  {
+    "name": "Macao",
+    "prefix": "XX"
+  },
+  {
+    "name": "Macedonia",
+    "prefix": "Z3"
+  },
+  {
+    "name": "Macquarie Island",
+    "prefix": "AX0"
+  },
+  {
+    "name": "Madagascar",
+    "prefix": "6X"
+  },
+  {
+    "name": "Madeira",
+    "prefix": "CQ2,CR9,CS3,CS9,CT3,CT9"
+  },
+  {
+    "name": "Malagasy Republic",
+    "prefix": "5R-5S"
+  },
+  {
+    "name": "Malawi",
+    "prefix": "7Q"
+  },
+  {
+    "name": "Maldive Islands",
+    "prefix": "8Q"
+  },
+  {
+    "name": "Mali",
+    "prefix": "TZ"
+  },
+  {
+    "name": "Malta",
+    "prefix": "9H"
+  },
+  {
+    "name": "Mariana Islands",
+    "prefix": "AH0,KH0,NH0,WH0"
+  },
+  {
+    "name": "Market Reef",
+    "prefix": "OJ0"
+  },
+  {
+    "name": "Marshall Islands",
+    "prefix": "V7"
+  },
+  {
+    "name": "Martinique",
+    "prefix": "FM,TO2"
+  },
+  {
+    "name": "Matzu Island",
+    "prefix": "BO1"
+  },
+  {
+    "name": "Mauritania",
+    "prefix": "5T"
+  },
+  {
+    "name": "Mayotte",
+    "prefix": "FH"
+  },
+  {
+    "name": "Mellish Reef",
+    "prefix": "AX4"
+  },
+  {
+    "name": "Mexico",
+    "prefix": "4A-4C,6D-6J,XA-XH"
+  },
+  {
+    "name": "Midway Island",
+    "prefix": "AH4,KH4,NH4"
+  },
+  {
+    "name": "Midway Islands",
+    "prefix": "WH4"
+  },
+  {
+    "name": "Minami Torishima",
+    "prefix": "JD1"
+  },
+  {
+    "name": "Minerva Reef",
+    "prefix": "1M"
+  },
+  {
+    "name": "Moldova",
+    "prefix": "ER"
+  },
+  {
+    "name": "Monaco",
+    "prefix": "3A"
+  },
+  {
+    "name": "Mongolia",
+    "prefix": "JT"
+  },
+  {
+    "name": "Montserrat Monastery",
+    "prefix": "AM3"
+  },
+  {
+    "name": "Morocco",
+    "prefix": "5C-5D,CN"
+  },
+  {
+    "name": "Mozambique",
+    "prefix": "C8-C9"
+  },
+  {
+    "name": "Myanmar",
+    "prefix": "XY-XZ"
+  },
+  {
+    "name": "Namibia",
+    "prefix": "V5"
+  },
+  {
+    "name": "Nauru",
+    "prefix": "C2"
+  },
+  {
+    "name": "Navassa Island",
+    "prefix": "KP1,NP1,WP1"
+  },
+  {
+    "name": "Nepal",
+    "prefix": "9N"
+  },
+  {
+    "name": "Netherlands",
+    "prefix": "PA-PI"
+  },
+  {
+    "name": "Netherlands Antilles",
+    "prefix": "PJ"
+  },
+  {
+    "name": "New Caledonia",
+    "prefix": "TX8"
+  },
+  {
+    "name": "New Caledonia and Chesterfield Island",
+    "prefix": "FK"
+  },
+  {
+    "name": "New Zealand",
+    "prefix": "ZL0-ZL4,ZL6"
+  },
+  {
+    "name": "Nicaragua",
+    "prefix": "H6-H7,HT,YN"
+  },
+  {
+    "name": "Niger",
+    "prefix": "5U"
+  },
+  {
+    "name": "Nigeria",
+    "prefix": "5N-5O"
+  },
+  {
+    "name": "Niue Islands",
+    "prefix": "ZK2"
+  },
+  {
+    "name": "North Cook Islands",
+    "prefix": "E5"
+  },
+  {
+    "name": "North Cyprus",
+    "prefix": "1B"
+  },
+  {
+    "name": "North Korea",
+    "prefix": "HM,P5-P9"
+  },
+  {
+    "name": "North Western European Russia",
+    "prefix": "R1,RA1,RE1,RF1,RG1,RH1,RI1,RJ1,RK1,RN1,RP1,RT1,RU1,RV1,RW1,RX1,RY1,RZ1"
+  },
+  {
+    "name": "Northern Ireland",
+    "prefix": "2I,GI,GN,MI,MN"
+  },
+  {
+    "name": "Norway",
+    "prefix": "LA-LH,LK-LN"
+  },
+  {
+    "name": "Oman",
+    "prefix": "A4"
+  },
+  {
+    "name": "Pakistan",
+    "prefix": "6P-6S,AP-AS"
+  },
+  {
+    "name": "Palau",
+    "prefix": "T8"
+  },
+  {
+    "name": "Palestinian Authority",
+    "prefix": "E4"
+  },
+  {
+    "name": "Palmyra Island",
+    "prefix": "AH5,KH5"
+  },
+  {
+    "name": "Palmyra Island and Jarvis Island",
+    "prefix": "NH5"
+  },
+  {
+    "name": "Palmyra Island, Jarvis Island",
+    "prefix": "WH5"
+  },
+  {
+    "name": "Panama",
+    "prefix": "3E-3F,H3,H8-H9,HO-HP"
+  },
+  {
+    "name": "Papua New Guinea",
+    "prefix": "P2"
+  },
+  {
+    "name": "Paraguay",
+    "prefix": "ZP"
+  },
+  {
+    "name": "Peru",
+    "prefix": "4T,OA-OC"
+  },
+  {
+    "name": "Philippines",
+    "prefix": "4D-4I,DU-DW,DY-DZ"
+  },
+  {
+    "name": "Phillipines",
+    "prefix": "DX0"
+  },
+  {
+    "name": "Piaui Island",
+    "prefix": "PS8"
+  },
+  {
+    "name": "Pitcairn Island Group",
+    "prefix": "VP6"
+  },
+  {
+    "name": "Poland",
+    "prefix": "3Z,SP1-SP9,SQ-SR"
+  },
+  {
+    "name": "Portugal",
+    "prefix": "CQ-CT"
+  },
+  {
+    "name": "Prince Edward and Marion Islands",
+    "prefix": "ZR8,ZS8"
+  },
+  {
+    "name": "Principality of Sealand",
+    "prefix": "S1"
+  },
+  {
+    "name": "Principality of Seborga",
+    "prefix": "0S,1P,T0,T8"
+  },
+  {
+    "name": "Puerto Rico",
+    "prefix": "KP3-KP4,NP3-NP4,WP3-WP4"
+  },
+  {
+    "name": "Qatar",
+    "prefix": "A7"
+  },
+  {
+    "name": "Republic of Guinea",
+    "prefix": "3X"
+  },
+  {
+    "name": "Republic of Yemen",
+    "prefix": "7O"
+  },
+  {
+    "name": "Reunion",
+    "prefix": "FR"
+  },
+  {
+    "name": "Romania",
+    "prefix": "YO-YR"
+  },
+  {
+    "name": "Russia",
+    "prefix": "RA,RE-RH,RI0,RJ-RM,Rn,RN-RZ"
+  },
+  {
+    "name": "Rwanda",
+    "prefix": "9X"
+  },
+  {
+    "name": "Saba",
+    "prefix": "PJ6"
+  },
+  {
+    "name": "Saint Eustatius",
+    "prefix": "PJ5"
+  },
+  {
+    "name": "Saint Helena",
+    "prefix": "ZD7"
+  },
+  {
+    "name": "Saint Kitts and Nevis",
+    "prefix": "V4"
+  },
+  {
+    "name": "Saint Lucia",
+    "prefix": "J6"
+  },
+  {
+    "name": "Saint Martin",
+    "prefix": "FS"
+  },
+  {
+    "name": "Saint Martin and Saint Barthelemy",
+    "prefix": "FJ"
+  },
+  {
+    "name": "Saint Pierre and Miquelon Islands",
+    "prefix": "TO0"
+  },
+  {
+    "name": "Saint Pierre Miquelon",
+    "prefix": "FP"
+  },
+  {
+    "name": "Saint Vincent and The Grenadines",
+    "prefix": "J8"
+  },
+  {
+    "name": "San Andreas and Providencia",
+    "prefix": "HJ0"
+  },
+  {
+    "name": "San Marino",
+    "prefix": "T7"
+  },
+  {
+    "name": "Sao Tome and Principe",
+    "prefix": "S9"
+  },
+  {
+    "name": "Sardinia",
+    "prefix": "IM,IS,IY0"
+  },
+  {
+    "name": "Saudi Arabia",
+    "prefix": "7Z,8Z,HZ"
+  },
+  {
+    "name": "Scarborough Reef",
+    "prefix": "BS7"
+  },
+  {
+    "name": "Scotland",
+    "prefix": "2M,GM,GS,MM,MS"
+  },
+  {
+    "name": "Senegal",
+    "prefix": "6V-6W"
+  },
+  {
+    "name": "Serbia",
+    "prefix": "YT-YU"
+  },
+  {
+    "name": "Seychelles",
+    "prefix": "S7"
+  },
+  {
+    "name": "Sicily",
+    "prefix": "IT,IW9"
+  },
+  {
+    "name": "Sierra Leone",
+    "prefix": "9L"
+  },
+  {
+    "name": "Singapore",
+    "prefix": "9V,S6"
+  },
+  {
+    "name": "Sint Maarten",
+    "prefix": "PJ7-PJ8"
+  },
+  {
+    "name": "Slovakia",
+    "prefix": "OM"
+  },
+  {
+    "name": "Slovenia",
+    "prefix": "S5"
+  },
+  {
+    "name": "Solomon Islands",
+    "prefix": "H4"
+  },
+  {
+    "name": "Somalia",
+    "prefix": "6O,T5"
+  },
+  {
+    "name": "South Africa",
+    "prefix": "S4,ZR-ZU"
+  },
+  {
+    "name": "South Cook Islands",
+    "prefix": "E5"
+  },
+  {
+    "name": "South Korea",
+    "prefix": "6K-6N,D7-D9,DS-DT,HL",
+    "licenses": 141000
+  },
+  {
+    "name": "South Orkney",
+    "prefix": "AY1"
+  },
+  {
+    "name": "South Shetland Islands",
+    "prefix": "CE9,HF0"
+  },
+  {
+    "name": "South Shetlands Islands",
+    "prefix": "CX0"
+  },
+  {
+    "name": "Sovereign Military Order of Malta",
+    "prefix": "1A"
+  },
+  {
+    "name": "Spain",
+    "prefix": "AM-AO,EA-EH",
+    "licenses": 58700
+  },
+  {
+    "name": "Spratly Islands",
+    "prefix": "1S"
+  },
+  {
+    "name": "Sri Lanka",
+    "prefix": "4P-4S"
+  },
+  {
+    "name": "Sudan",
+    "prefix": "6T-6U,ST"
+  },
+  {
+    "name": "Surinam",
+    "prefix": "PZ"
+  },
+  {
+    "name": "Svalbard Island",
+    "prefix": "JW"
+  },
+  {
+    "name": "Sweden",
+    "prefix": "7S,8S,SA-SM"
+  },
+  {
+    "name": "Switzerland",
+    "prefix": "HB,HE"
+  },
+  {
+    "name": "Syria",
+    "prefix": "6C,YK"
+  },
+  {
+    "name": "Tadjikistan",
+    "prefix": "EY"
+  },
+  {
+    "name": "Tahiti, Marquesas Island, Austral Islands",
+    "prefix": "FO"
+  },
+  {
+    "name": "Taiwan",
+    "prefix": "BM-BO,BQ,BV,BX",
+    "licenses": 68692
+  },
+  {
+    "name": "Tanzania",
+    "prefix": "5H-5I"
+  },
+  {
+    "name": "Thailand",
+    "prefix": "E2,HS",
+    "licenses": 141241
+  },
+  {
+    "name": "The Gambia",
+    "prefix": "C5"
+  },
+  {
+    "name": "Togo",
+    "prefix": "5V"
+  },
+  {
+    "name": "Tokelau Islands",
+    "prefix": "ZK3"
+  },
+  {
+    "name": "Tonga",
+    "prefix": "A3"
+  },
+  {
+    "name": "Trinidad and Tobago",
+    "prefix": "9Y-9Z"
+  },
+  {
+    "name": "Tristan Da Cunha and Gough Islands",
+    "prefix": "ZD9"
+  },
+  {
+    "name": "Tunisia",
+    "prefix": "3V,TS"
+  },
+  {
+    "name": "Turkey",
+    "prefix": "TA-TB,YM"
+  },
+  {
+    "name": "Turkmenistan",
+    "prefix": "EZ"
+  },
+  {
+    "name": "Tuvalu",
+    "prefix": "T2"
+  },
+  {
+    "name": "Uganda",
+    "prefix": "5X"
+  },
+  {
+    "name": "UK Sovereign Bases on Cyprus",
+    "prefix": "ZC4"
+  },
+  {
+    "name": "Ukraine",
+    "prefix": "EM-EO,U5,UR-UZ"
+  },
+  {
+    "name": "United Arab Emirates",
+    "prefix": "A6"
+  },
+  {
+    "name": "United Nations",
+    "prefix": "4U"
+  },
+  {
+    "name": "United States of America",
+    "prefix": "AA-AK,K,KA-KG,KI-KK,KM-KO,KQ,KS-KW,KY-KZ,N,NA-NG,NI-NK,NM-NO,NQ-NW,NY-NZ,W,WA-WG,WI-WK,WM-WO,WQ-WZ",
+    "licenses": 679864
+  },
+  {
+    "name": "Uruguay",
+    "prefix": "CV-CX"
+  },
+  {
+    "name": "US personnel on Okinawa",
+    "prefix": "KR6,KR8"
+  },
+  {
+    "name": "US Virgin Islands",
+    "prefix": "KP2,KV4,NP2,WP2"
+  },
+  {
+    "name": "Uzbekistan",
+    "prefix": "U8,UJ-UM"
+  },
+  {
+    "name": "Vanuatu",
+    "prefix": "YJ"
+  },
+  {
+    "name": "Vatican City",
+    "prefix": "HV"
+  },
+  {
+    "name": "Venezuela",
+    "prefix": "4M,YV-YY"
+  },
+  {
+    "name": "Vietnam",
+    "prefix": "3W,XV"
+  },
+  {
+    "name": "Wake Island",
+    "prefix": "AH9,KH9,KW6,NH9,WH9"
+  },
+  {
+    "name": "Wales",
+    "prefix": "2W,GC,GW,MC,MW"
+  },
+  {
+    "name": "Wallis Island, Futuna Island",
+    "prefix": "FW"
+  },
+  {
+    "name": "West Carolines",
+    "prefix": "AC6"
+  },
+  {
+    "name": "Western Sahara",
+    "prefix": "S0"
+  },
+  {
+    "name": "Western Samoa",
+    "prefix": "5W"
+  },
+  {
+    "name": "Zambia",
+    "prefix": "9I-9J"
+  },
+  {
+    "name": "Zimbabwe",
+    "prefix": "Z2"
+  }
+]
