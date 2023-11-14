@@ -1,12 +1,31 @@
+import { Player } from './player';
+import { TBufferEntry } from './script';
+
+/**
+ * Queue Entry
+ **/
+// export interface TBufferEntry {
+//   name: string;
+//   value: any;
+//   startTime: number;
+//   endTime: number;
+// }
+
 /**
  * Schedule Class
  **/
 export class Schedule {
+  queue: TBufferEntry[];
+  event: TBufferEntry;
+  time: number;
+  ending: number;
+  duration: number;
+  player: Player;
   
   /**
    * Constructor
    **/
-  constructor(player) {
+  constructor(player: Player) {
     this.queue = [];
     this.event = null;
 
@@ -21,7 +40,7 @@ export class Schedule {
   /**
    * Reset the queue and return last pending
    **/
-  reset() {
+  reset(): TBufferEntry {
     const next = this.queue[0];
 
     this.queue = [];
@@ -32,7 +51,10 @@ export class Schedule {
     return next;
   }
 
-  canPush(time) {
+  /**
+   * Can Push Time?
+   **/
+  canPush(time: number): boolean {
     this.time = time;
 
     if (!this.ending) {
@@ -44,7 +66,7 @@ export class Schedule {
   /**
    * Push entry and return endTime
    **/
-  push(entry, cb) {
+  push(entry: TBufferEntry, cb?: Function): number {
     const startTime = this.ending;
 
     this.ending = cb 
@@ -63,7 +85,7 @@ export class Schedule {
   /**
    * Advance schedule and return next
    **/
-  advance() {
+  advance(): boolean {
     while (this._endCurrentEvent()
       || this._startNextEvent()) 
     {}
@@ -74,7 +96,7 @@ export class Schedule {
   /**
    * End the current event
    **/
-  _endCurrentEvent() {
+  _endCurrentEvent(): boolean {
     if (this.event
       && this.event.endTime <= this.time
     ) {
@@ -97,9 +119,17 @@ export class Schedule {
     ) {
       this.event = this.queue.shift();
 
-      (this.event.name === 'play')
-        ? this.player.emit('char:start', this.event)
-        : this.player.setOptions(this.event.value, true);
+      if (this.event.name === 'play') {
+        this.player.emit('char:start', this.event);
+      }
+      else {
+        this.player.setOptions(
+          typeof this.event.value === 'object'
+            ? this.event.value
+            : {}, // should neve happen, but just in caase
+          true
+        );
+      }
 
       return true;
     }

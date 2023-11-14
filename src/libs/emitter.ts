@@ -1,7 +1,13 @@
+export interface TSubscriber {
+  event: string;
+  cb: Function;
+}
+
 /**
  * Emitter Class
  **/
 export class Emitter {
+  subscribers: TSubscriber[];
 
   /**
    * Constructor
@@ -13,8 +19,8 @@ export class Emitter {
   /**
    * Subscribe
    **/
-  on(event, cb) {
-    const subscriber = { event, cb };
+  on(event: string, cb: Function) {
+    const subscriber: TSubscriber = { event, cb };
 
     this.subscribers.push(subscriber);
 
@@ -28,7 +34,7 @@ export class Emitter {
   /**
    * Emit
    **/
-  emit(event, value) {
+  emit(event: String, value: any) {
     const subscribers = this.subscribers;
 
     for (let i = 0; i < subscribers.length; ++i) {

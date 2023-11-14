@@ -1,14 +1,39 @@
-import { render } from './render';
+import { render, TRenderResult } from './render';
+
+/**
+ * Script Value 
+ * 
+ * 1. String = Text to play
+ * 2. Record = Comand to execute
+ **/
+export type TScriptValue = (string | Record<string, any>);
+
+export interface TBufferEntry {
+  index: number;
+  startPercent: number;
+  endPercent: number;
+  startTime: number;
+  endTime: number;
+  name: string;
+  value: TScriptValue;
+}
 
 /**
  * CW Script Class
  **/
 export class Script {
+  input: Function | string;
+  cbMethod: Function;
+  cbCount: number;
+  buffer: TRenderResult[];
+  index: number;
+  playTotal: number;
+  playCount: number;
 
   /**
    * Constructor
    **/
-  constructor(input) {
+  constructor(input: string | Function) {
     this.input = input;
 
     this.cbMethod = null; 
@@ -16,7 +41,7 @@ export class Script {
 
     if (typeof input === 'function') {
       this.cbMethod = input;
-      input = this.cbMethod(this.cbCount++);
+      input = this.cbMethod(this.cbCount++) as string;
     }
     this.buffer = render(input);
     this.index = 0;
@@ -28,7 +53,7 @@ export class Script {
   /**
    * Count total play entries
    **/
-  _getPlayTotal() {
+  _getPlayTotal(): number {
     if (this.cbMethod) {
       return 0;
     }
@@ -41,7 +66,7 @@ export class Script {
   /**
    * Count used play entries
    **/
-  _getPlayCount() {
+  _getPlayCount(): number {
     if (!this.playTotal || !this.index) {
       return 0;
     }
@@ -60,7 +85,7 @@ export class Script {
   /**
    * Get next buffer entry
    **/
-  getNext(advance = false) {
+  getNext(advance: boolean = false): TBufferEntry {
     if (this.index === this.buffer.length) {
       this._fetchMore();
     }
@@ -77,6 +102,8 @@ export class Script {
         endPercent: this.playTotal
           ? (endCount / this.playTotal) * 100
           : 0,
+        startTime: 0,
+        endTime: 0,
         name: isPlay ? 'play' : 'set', 
         value 
       };
@@ -87,12 +114,13 @@ export class Script {
       }
       return entry;
     }
+    return undefined;
   }
 
   /**
    * Rollback the buffer to an entry
    **/
-  rollback(entry) {
+  rollback(entry: TBufferEntry) {
     if (entry && entry.index < this.index) {
       this.index = entry.index;
     }
@@ -102,7 +130,7 @@ export class Script {
   /**
    * Rewind by number of words
    **/ 
-  rewind(words = 1) {
+  rewind(words: number = 1) {
     let index = this._seekLastSpace(this.index);
 
     while (words-- && index) {
@@ -116,7 +144,7 @@ export class Script {
   /**
    * Seek Last Space
    **/
-  _seekLastSpace(index) {
+  _seekLastSpace(index: number): number {
     while (index && this.buffer[index] !== ' ') {
       --index;
     }
@@ -126,7 +154,7 @@ export class Script {
   /**
    * Seek Next Word
    **/
-  _seekNextWord(index) {
+  _seekNextWord(index: number): number {
     while (index < this.buffer.length
       && this.buffer[index] === ' ')
     {
@@ -138,7 +166,7 @@ export class Script {
   /**
    * Seek Last Word
    **/
-  _seekLastWord(index) {
+  _seekLastWord(index: number): number {
     while (index && this.buffer[index] === ' ') {
       --index;
     }

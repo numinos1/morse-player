@@ -8,34 +8,56 @@ const MATCH_VALUE   = /^\s*([^\]\s]+)/;
 const MATCH_STRING  = /^\s*(["'])(.*?[^\\])\1/;
 
 /**
- * CW Script Parser
+ * Parsed Value
  **/
-export function parse(script) {
+export type TParseValue = (string | Record<string, any>);
+
+/**
+ * Parsed Result
+ **/
+export interface TParseAction {
+  name: string;           // play, set, audio, <action>
+  value: TParseValue;     // string or object (perhaps nested)
+  as: string;             // reference value later on as this name
+}
+
+/**
+ * CW Script Parser
+ * 
+ * Parse takes a string as input and converts it into an array of 
+ * result objects that have a name, value (and optionally as). The
+ * parsed results will be consumed by render().
+ **/
+export function parse(script: string): TParseAction[] {
   const tokens = tokenize(script);
 
   /**
    * Parse Text
    **/
-  function parseText() {
+  function parseText(): TParseAction | undefined {
     const value = tokens.next(MATCH_TEXT);
 
     return value
-      ? { name: 'play', value }
-      : '';
+      ? { name: 'play', value, as: '' }
+      : undefined;
   }
 
   /**
    * Parse Action
    **/
-  function parseAction() {
+  function parseAction(): TParseAction | undefined {
     const name = tokens.next(MATCH_ACTION);
 
     if (!name) {
-      return '';
+      return undefined;
     }
     try {
       const params = {};
-      const action = { name, value: params };
+      const action: TParseAction = {
+        name,
+        value: params,
+        as: ''
+      };
 
       while (tokens.more()) {
         if (tokens.next(MATCH_CLOSE)) {
@@ -44,9 +66,15 @@ export function parse(script) {
         const name = parseName(params);
         const value = parseValue(name);
 
-        (name === 'as')
-          ? action.as = value
-          : params[name] = value;
+        if (name === 'as') {
+          if (typeof value !== 'string') {
+            throw new Error(`Value must be a string as=${value}`);
+          }
+          action.as = value;
+        }
+        else {
+          params[name] = value;
+        }
       }
       throw new Error(`Missing "]"`);
     }
@@ -58,7 +86,7 @@ export function parse(script) {
   /**
    * Parse Param Name
    **/
-  function parseName(params) {
+  function parseName(params: Record<string, any>): string {
     const name = tokens.next(MATCH_NAME);
       
     if (!name) {
@@ -73,7 +101,7 @@ export function parse(script) {
   /**
    * Parse Param Value
    **/
-  function parseValue(name) {
+  function parseValue(name: string) {
     const value = parseAction()
       || tokens.next(MATCH_STRING)
       || tokens.next(MATCH_VALUE);
@@ -88,8 +116,8 @@ export function parse(script) {
    * Main Parse Loop
    **/
   try {
-    let actions = [];
-    let action;
+    let actions: TParseAction[] = [];
+    let action: TParseAction;
 
     while (tokens.more()) {
       if ((action = parseText())) {

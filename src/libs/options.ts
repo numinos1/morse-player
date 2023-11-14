@@ -2,11 +2,15 @@
  * Player Options
  **/
 export class Options {
+  defaults: Record<string, any>;
+  user: Record<string, any>;
+  script: Record<string, any>;
+  options: Record<string, any>;
 
   /**
    * Constructor
    **/
-  constructor(opts) {
+  constructor(opts: Record<string, any>) {
     this.defaults = opts ? this._prune(opts) : {};
     this.user = {};
     this.script = {};
@@ -18,7 +22,7 @@ export class Options {
    * - Incremental updates
    * - Prune undefined & null values
    **/
-  setUser(opts) {
+  setUser(opts: Record<string, any>) {
     this.user = this._prune({
       ...this.user,
       ...opts
@@ -33,7 +37,10 @@ export class Options {
    * - Clobber or incremental updates
    * - Prune undefined & null values
    **/
-  setScript(opts = {}, isCombine = false) {
+  setScript(
+    opts: Record<string, any> = {},
+    isCombine: boolean = false
+  ) {
     this.script = isCombine
       ? this._prune({ ...this.script, ...opts })
       : this._prune(opts);
@@ -46,7 +53,7 @@ export class Options {
   /**
    * Get All Options
    **/
-  get() {
+  get(): Record<string, any> {
     return this.options;
   }
 
@@ -75,13 +82,13 @@ export class Options {
   /**
    * Prune Undefined Options
    **/
-  _prune(obj) {
+  _prune<Type>(obj: any): Type {
     return Object.entries(obj)
       .reduce((out, [key, val]) => {
         if (val !== undefined && val !== null) {
           out[key] = val;
         }
         return out;
-      }, {});
+      }, {} as Type);
   }
 }

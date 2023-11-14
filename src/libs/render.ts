@@ -1,20 +1,31 @@
-import { parse } from './parse';
+import { parse, TParseAction } from './parse';
 import * as actionCallbacks from './actions';
 import { splitVocab } from './utils';
 
 /**
+ * Actions return one of the following
+ **/
+export type TActionResult = string | string[] | Record<string, any>;
+
+/**
+ * Render returns this type
+ **/
+export type TRenderResult = string | Record<string, any>;
+
+/**
  * Render CW script
  **/
-export function render(script) {
-  const asValues = {};
+export function render(script: string): TRenderResult[] {
+  const asValues: Record<string, any> = {};
 
   /**
-   * Execute Action
+   * Execute Parsed Action
    **/
-  function execAction(action) {
+  function execAction(action: TParseAction): TActionResult {
     const { as, name, value } = action;
     const cb = actionCallbacks[name];
 
+    // If no action, treat name "as" a back-reference
     if (!cb) {
       const asValue = asValues[name];
 
@@ -23,11 +34,14 @@ export function render(script) {
       }
       return asValue;
     }
+
+    // If action, execute callback and resolve params
     const output = cb(typeof value === 'object'
       ? resolveParams(value)
       : value
     );
 
+    // Save resolved action output "as" a back-reference
     if (as) {
       asValues[as] = output;
     }
@@ -35,9 +49,9 @@ export function render(script) {
   }
 
   /**
-   * Resolve Action Params
+   * Resolve Recursive Action Params
    **/
-  function resolveParams(params) {
+  function resolveParams(params: Record<string, any>): Record<string, any> {
     return Object.entries(params).reduce((out, [name, value]) => {
       out[name] = (typeof value === 'object')
         ? execAction(value)
@@ -49,7 +63,7 @@ export function render(script) {
   /**
    * Main Renderer
    **/
-  return parse(script).reduce((entries, action) => {
+  return parse(script).reduce<TRenderResult[]>((entries, action) => {
     let value = execAction(action);
 
     if (Array.isArray(value)) {

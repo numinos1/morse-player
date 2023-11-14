@@ -1,33 +1,43 @@
-import { scrambleList, randomEntry, splitVocab, toList, toNumber, countMap } from './utils';
+import { scrambleList, randomEntry, toList, toNumber, countMap } from './utils';
 import { states as stateList } from '../resources/states';
 import { letters as letterList } from '../resources/letters';
 import { numbers as numberList } from '../resources/numbers';
-import { ALPHA, NUMERIC } from '../resources/lists';
+import { ALPHA, NUMERIC, CALLSIGN_FORMATS } from '../resources/lists';
 
 // ---------------------------------------------------------
 //                         Verbs
 // ---------------------------------------------------------
 
 /**
- * Set Audio Properties
+ * Set Audio Properties 
+ * 
+ * @returns {Object} (Audio options)
  **/
-export function set(value) {
+export function set(value: Record<string, any>): Record<string, any> {
   return value;
 }
 
 /**
- * Play String of CW
+ * Play String of CW 
+ * 
+ * @returns {String} (CW Text to play)
  **/
-export function play(value) {
+export function play(value: string): string {
   return value;
 }
 
 /**
  * Randomly pick from vocab or words
+ * 
+ * - action.from = string | string[] = List to pick from
+ * - action.combine = number = Pick and combine multiple items (optional)
+ * - action.repeat = number = Repeat multiple times (optional)
+ * 
+ * @returns {string[]} (array of CW text strings to play)
  **/
-export function pick(action) {
+export function pick(action: Record<string, any>): string[] {
   if (!action.from) {
-    throw new Error('[pick from:? count:?] missing property "from"');
+    throw new Error('[pick from:? combine:? repeat:?] missing property "from"');
   }
   const list = toList(action.from);
   const combine = toNumber(action.combine) || 1;
@@ -45,16 +55,21 @@ export function pick(action) {
 
 /**
  * Scramble vocab or words
+ * 
+ * - action.from = string | string[] = List to scramble
+ * - action.count = number = Return subset of list (optional)
+ * 
+ * @returns {string[]}
  **/
-export function scramble(value) {
-  if (!value.from) {
-    throw new Error('[scramble from:?] missing property "from"');
+export function scramble(action: Record<string, any>): string[] {
+  if (!action.from) {
+    throw new Error('[scramble from:? count:?] missing property "from"');
   }
   const list = scrambleList(
-    toList(value.from)
+    toList(action.from)
   );
 
-  const count = toNumber(value.count);
+  const count = toNumber(action.count);
 
   return count
     ? list.slice(0, count)
@@ -98,13 +113,13 @@ export function alphanumeric() {
 
 // L{1,2}NL{1,3} (90%)
 // NLNL{1-3} (10%)
-export function callsign(min, max) {
+export function callsign(min: number, max: number): string {
   return randomEntry(
       CALLSIGN_FORMATS.filter(format => 
         format.length >= min && format.length <= max
       )
     )
-    .split()
+    .split('')
     .map(format => 
       randomEntry(
         format === 'L' 

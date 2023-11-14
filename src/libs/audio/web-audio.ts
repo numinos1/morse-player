@@ -1,3 +1,4 @@
+import { BaseAudio, TAudioOptions } from './base-audio';
 import { backoff, toNumber } from '../utils';
 
 // https://web.dev/audio-scheduling/
@@ -6,9 +7,23 @@ import { backoff, toNumber } from '../utils';
 /**
  * Audio Driver
  **/
-export class WebAudio {
+export class WebAudio extends BaseAudio {
+  audioCtx: AudioContext;
+  gainNode: GainNode;
+  gainNodePlay: GainNode;
+  gainNodeLimiter: GainNode;
+  oscillator: OscillatorNode;
+  biquadFilter: BiquadFilterNode;
+  noiseFilterL: BiquadFilterNode;
+  noiseFilterH: BiquadFilterNode;
+  whiteNoise: AudioBufferSourceNode;
+  gain: number;
 
-  constructor(opts) {
+  /**
+   * Constructor
+   **/
+  constructor(opts: TAudioOptions) {
+    super(opts);
     // this.q = opts.q || 10;
     // this.freq = opts.freq || 600;
     // this.gain = opts.gain || 0.5;
@@ -70,7 +85,13 @@ export class WebAudio {
     this.oscillator.start();
   }
 
-  setAudio(opts, time = this.audioCtx.currentTime) {
+  /**
+   * Set Audio Options
+   **/
+  setAudio(
+    opts: TAudioOptions,
+    time: number = this.audioCtx.currentTime
+  ) {
     if (opts.gain !== undefined) {
       const gain = toNumber(opts.gain);
 
@@ -105,23 +126,35 @@ export class WebAudio {
     }
   }
 
-  setPause(isPause) {
+  /**
+   * Set Pause
+   **/
+  setPause(isPause: boolean) {
     isPause
       ? this.audioCtx.suspend()
       : this.audioCtx.resume();
   }
 
+  /**
+   * Get Time
+   **/
   getTime() {
     return this.audioCtx.currentTime;
   }
 
-  playTone(time, duration) {
+  /**
+   * Play Tone
+   **/
+  playTone(time: number, duration: number) {
     this.gainNode.gain.setValueAtTime(this.gain, time);
     this.gainNode.gain.setValueAtTime(0, time += duration);
 
     return time;
   }
 
+  /**
+   * Cancel Play
+   **/
   cancelPlay() {
     const nowTime = this.getTime();
     const volume = this.gainNode.gain.value;

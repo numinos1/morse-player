@@ -1,7 +1,7 @@
 /**
  * Tokenize
  **/
-export function tokenize(script) {
+export function tokenize(script: string) {
   let remains = (script || '')
     .replace(/[\s\n\r]+/gm, ' ')
     .toLowerCase()
@@ -10,21 +10,21 @@ export function tokenize(script) {
   /**
    * Are there still more tokens?
    **/
-  function more() {
+  function more(): number {
     return remains.length;
   }
 
    /**
    * Return stub of remains fragment
    **/
-   function near(message) {
+   function near(): string {
     return remains.substring(0, 20);
   }
 
   /**
    * Attempt to match next token
    **/
-  function next(regex) {
+  function next(regex: RegExp): string {
     if (more()) {
       const parts = remains.match(regex);
 

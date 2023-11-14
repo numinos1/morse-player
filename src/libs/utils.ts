@@ -65,7 +65,7 @@ export function randomEntry<Type>(list: Type[]) {
 /**
  * Split list of CW Vocabulary Chars
  **/
-export function splitVocab(text: string) {
+export function splitVocab(text: string): string[] {
   return text
     .split(/(\<.*?\>)/gm)
     .reduce((list, text, index) => 

@@ -5,7 +5,21 @@ import { Schedule } from './schedule';
 import { Emitter } from './emitter';
 import { WebAudio } from './audio/web-audio';
 import { MockAudio } from './audio/mock-audio';
-import { toNumber } from '../libs/utils';
+import { TAudioOptions } from './audio/base-audio';
+import { toNumber } from './utils';
+
+/**
+ * Player Options
+ **/
+export interface TPlayerOptions {
+  volume: number;
+  gain: number;
+  freq: number;
+  q: number;
+  wpm: number;
+  eff: number;
+  color: string;
+}
 
 const DOT_SIZE = 1; // used for dot and tone space
 const DASH_SIZE = 3; // used for dash and char space
@@ -33,8 +47,21 @@ const DEFAULT_OPTIONS = {
  * CW Player
  **/
 export class Player extends Emitter {
+  options: Options;
+  schedule: Schedule;
+  id: string;
+  mode: string;
+  audio: WebAudio | MockAudio;
+  script: Script;
+  tickRef: number | NodeJS.Timeout;
+  tickSpan: number;
+  isPlaying: boolean;
+  isPaused: boolean;
+  dotTime: number;
+  spaceTime: number;
+  gapTime: number;
 
-  constructor(defaultOptions, mode = 'web') {
+  constructor(defaultOptions: Partial<TPlayerOptions>, mode = 'web') {
     super();
     
     this.options = new Options({
@@ -69,7 +96,10 @@ export class Player extends Emitter {
     return this.options.get();
   }
 
-  setOptions(options, isScript = false) {
+  setOptions(
+    options: Record<string, any>,
+    isScript: boolean = false
+  ) {
     const newOptions = this._setOptions(isScript
       ? this.options.setScript(options, true)
       : this.options.setUser(options)
@@ -77,7 +107,7 @@ export class Player extends Emitter {
     this.emit('options', newOptions);
   }
 
-  _setOptions(options) {
+  _setOptions(options: Record<string, any>) {
     const { combined } = options;
     const wpm = toNumber(combined.wpm) || 20;
     let eff = toNumber(combined.eff) || 20;
@@ -106,12 +136,17 @@ export class Player extends Emitter {
   // (Must trigger during a button event)
   init() {
     if (!this.audio) {
-      this.audio = this._initAudio(this.options.get());
+      this.audio = this._initAudio(
+        this.options.get() as TAudioOptions // Typescript Hack!!!!
+      );
     }
   }
 
   // NOTE: Must init audio within a click event
-  play(text, options = undefined) {
+  play(
+    text: string | Function,
+    options?: Record<string, any>
+  ) {
     this.stop();
 
     if (options) {
@@ -122,14 +157,16 @@ export class Player extends Emitter {
     this.script = new Script(text);
 
     if (!this.audio) {
-      this.audio = this._initAudio(this.options.get());
+      this.audio = this._initAudio(
+        this.options.get() as TAudioOptions // Typescript Hack!!!
+      );
     }
     this.isPlaying = true;
     this.emit('play:start', this.options.get());
     this._onTick();
   }
 
-  _initAudio(opts) {
+  _initAudio(opts: TAudioOptions) {
     switch (this.mode) {
       case 'web': return new WebAudio(opts);
       case 'server': return new WebAudio(opts);
@@ -138,17 +175,17 @@ export class Player extends Emitter {
     }
   }
 
-  _playChar(event, time) {
+  _playChar(event: Record<string, any>, time: number) {
     return (vocabulary[event.value] || '')
       .split('')
-      .map(char => SIZES[char])
-      .reduce((time, size, index) =>
+      .map((char: string) => SIZES[char])
+      .reduce((time: number, size: number, index: number) =>
         this._playTone(size, time + (index ? this.dotTime : 0)),
         time
       );
   }
 
-  _playTone(size, time) {
+  _playTone(size: number, time: number) {
     return (size <= DASH_SIZE)
       ? this.audio.playTone(time, size * this.dotTime)
       : time + this.gapTime;
@@ -164,7 +201,7 @@ export class Player extends Emitter {
     {
       (event.name === 'set')
         ? this.schedule.push(event)
-        : this.schedule.push(event, time => 
+        : this.schedule.push(event, (time: number) => 
             this._playChar(event, time) + this.gapTime
           );
     }
@@ -184,7 +221,7 @@ export class Player extends Emitter {
   _stopTick() {
     if (this.tickRef) {
       this.mode === 'web'
-        ? window.cancelAnimationFrame(this.tickRef)
+        ? window.cancelAnimationFrame(this.tickRef as number)
         : clearTimeout(this.tickRef);
       this.audio.cancelPlay();
       this.script.rollback(
