@@ -10,10 +10,10 @@ export type TScriptValue = (string | Record<string, any>);
 
 export interface TBufferEntry {
   index: number;
-  startPercent: number;
-  endPercent: number;
-  startTime: number;
-  endTime: number;
+  startPercent?: number;
+  endPercent?: number;
+  startTime?: number;
+  endTime?: number;
   name: string;
   value: TScriptValue;
 }

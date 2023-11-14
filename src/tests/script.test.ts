@@ -4,7 +4,7 @@ import { Script } from '../libs/script';
 describe('Script CW', () => {
 
   test('Class instantates', () => {
-    expect(new Script()).toBeInstanceOf(Script);
+    expect(new Script('')).toBeInstanceOf(Script);
   });
 
   test('getNext()', () => {
@@ -14,6 +14,8 @@ describe('Script CW', () => {
       index: 0, 
       startPercent: 0,
       endPercent: 25,
+      endTime: 0,
+      startTime: 0,
       name: "play", 
       value: "a"
     });
@@ -21,6 +23,8 @@ describe('Script CW', () => {
       index: 0, 
       startPercent: 0,
       endPercent: 25,
+      endTime: 0,
+      startTime: 0,
       name: "play", 
       value: "a"
     });
@@ -33,6 +37,8 @@ describe('Script CW', () => {
       index: 0,
       startPercent: 0,
       endPercent: 25, 
+      endTime: 0,
+      startTime: 0,
       name: "play", 
       value: "a"
     });
@@ -40,6 +46,8 @@ describe('Script CW', () => {
       index: 1, 
       startPercent: 25,
       endPercent: 50,
+      endTime: 0,
+      startTime: 0,
       name: "play", 
       value: "b"
     });
@@ -47,6 +55,8 @@ describe('Script CW', () => {
       index: 2, 
       startPercent: 50,
       endPercent: 75,
+      endTime: 0,
+      startTime: 0,
       name: "play", 
       value: "c"
     });
@@ -54,6 +64,8 @@ describe('Script CW', () => {
       index: 3, 
       startPercent: 75,
       endPercent: 100,
+      endTime: 0,
+      startTime: 0,
       name: "play", 
       value: "d"
     });
@@ -67,6 +79,8 @@ describe('Script CW', () => {
       index: 0, 
       startPercent: 0,
       endPercent: 25,
+      endTime: 0,
+      startTime: 0,
       name: "play", 
       value: "a"
     });
@@ -74,6 +88,8 @@ describe('Script CW', () => {
       index: 1, 
       startPercent: 25,
       endPercent: 50,
+      endTime: 0,
+      startTime: 0,
       name: "play", 
       value: "b"
     });
@@ -81,6 +97,8 @@ describe('Script CW', () => {
       index: 2, 
       startPercent: 50,
       endPercent: 50,
+      endTime: 0,
+      startTime: 0,
       name: "set", 
       value: {
         wpm: '25',
@@ -91,6 +109,8 @@ describe('Script CW', () => {
       index: 3, 
       startPercent: 50,
       endPercent: 75,
+      endTime: 0,
+      startTime: 0,
       name: "play", 
       value: "c"
     });
@@ -98,6 +118,8 @@ describe('Script CW', () => {
       index: 4, 
       startPercent: 75,
       endPercent: 100,
+      endTime: 0,
+      startTime: 0,
       name: "play", 
       value: "d"
     });
@@ -111,6 +133,8 @@ describe('Script CW', () => {
       index: 0, 
       startPercent: 0,
       endPercent: 25,
+      endTime: 0,
+      startTime: 0,
       name: "play", 
       value: "a"
     });
@@ -118,6 +142,8 @@ describe('Script CW', () => {
       index: 0, 
       startPercent: 0,
       endPercent: 25,
+      endTime: 0,
+      startTime: 0,
       name: "play", 
       value: "a"
     });
@@ -125,6 +151,8 @@ describe('Script CW', () => {
       index: 1, 
       startPercent: 25,
       endPercent: 50,
+      endTime: 0,
+      startTime: 0,
       name: "play", 
       value: "b"
     });
@@ -132,6 +160,8 @@ describe('Script CW', () => {
       index: 2, 
       startPercent: 50,
       endPercent: 75,
+      endTime: 0,
+      startTime: 0,
       name: "play", 
       value: "c"
     });
@@ -139,6 +169,8 @@ describe('Script CW', () => {
       index: 3, 
       startPercent: 75,
       endPercent: 100,
+      endTime: 0,
+      startTime: 0,
       name: "play", 
       value: "d"
     });
@@ -151,6 +183,8 @@ describe('Script CW', () => {
       index: 1, 
       startPercent: 25,
       endPercent: 50,
+      endTime: 0,
+      startTime: 0,
       name: "play", 
       value: "b"
     });
@@ -158,6 +192,8 @@ describe('Script CW', () => {
       index: 2, 
       startPercent: 50,
       endPercent: 75,
+      endTime: 0,
+      startTime: 0,
       name: "play", 
       value: "c"
     });
@@ -165,6 +201,8 @@ describe('Script CW', () => {
       index: 3, 
       startPercent: 75,
       endPercent: 100,
+      endTime: 0,
+      startTime: 0,
       name: "play", 
       value: "d"
     });
@@ -180,16 +218,20 @@ describe('Script CW', () => {
       index: 11,
       startPercent: 27.500000000000004, 
       endPercent: 30,
+      endTime: 0,
+      startTime: 0,
       name: "play", 
       value: "t"
     });
     script.rewind();
     expect(script.getNext(true)).toEqual({
-      index: 7, 
-      startPercent: 17.5,
-      endPercent: 20,
-      name: "play", 
-      value: "n"
+      index: 6,
+      startPercent: 15,
+      endPercent: 17.5,
+      startTime: 0,
+      endTime: 0,
+      name: 'play',
+      value: ' '
     });
   });
 

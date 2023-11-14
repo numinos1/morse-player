@@ -3,6 +3,7 @@ import { backoff, toNumber } from '../utils';
 
 // https://web.dev/audio-scheduling/
 // https://web.dev/speed-rendering/
+// https://webaudio.github.io/web-audio-api/
 
 /**
  * Audio Driver
@@ -40,11 +41,13 @@ export class WebAudio extends BaseAudio {
     this.noiseFilterH = this.audioCtx.createBiquadFilter();
     this.whiteNoise = this.audioCtx.createBufferSource();
 
-    this.noiseFilterL.type = "lowpass";
+    // @ts-ignore
+    this.noiseFilterL.type = "lowpass"; // Typescript enum definition is wrong!
     this.noiseFilterL.frequency.setValueAtTime(400, this.audioCtx.currentTime);
     this.noiseFilterL.Q.setValueAtTime(20, this.audioCtx.currentTime);
 
-    this.noiseFilterH.type = "highpass";
+    // @ts-ignore
+    this.noiseFilterH.type = "highpass"; // Typescript enum definition is wrong!
     this.noiseFilterH.frequency.setValueAtTime(700, this.audioCtx.currentTime);
     this.noiseFilterH.Q.setValueAtTime(20, this.audioCtx.currentTime);
 
@@ -62,11 +65,13 @@ export class WebAudio extends BaseAudio {
     this.noiseFilterL.connect(this.noiseFilterH);
     this.noiseFilterH.connect(this.audioCtx.destination);
 
-    this.biquadFilter.type = "lowpass";
+    // @ts-ignore
+    this.biquadFilter.type = "lowpass"; // Typescript enum definition is wrong!
     this.biquadFilter.frequency.setValueAtTime(500, this.audioCtx.currentTime);
     this.biquadFilter.Q.setValueAtTime(10, this.audioCtx.currentTime);
 
-    this.oscillator.type = 'sine';
+    // @ts-ignore
+    this.oscillator.type = 'sine'; // Typescript enum definition is wrong!
     this.oscillator.frequency.setValueAtTime(600, this.audioCtx.currentTime);
 
     this.oscillator.connect(this.gainNode);

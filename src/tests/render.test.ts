@@ -4,7 +4,7 @@ import { render } from '../libs/render';
 describe('Render CW', () => {
 
   test('Class instantates', () => {
-    const value = render();
+    const value = render('');
 
     expect(value).toEqual([]);
   });
@@ -39,20 +39,20 @@ describe('Render CW', () => {
     expect(value.join('')).toMatch(/^cq cq (\w{2}) \1$/);
   });
 
-  test('renders: [pick from:[letters] count:10]', () => {
-    const value = render('[pick from:[letters] count:10]');
+  test('renders: [pick from:[letters] repeat:10]', () => {
+    const value = render('[pick from:[letters] repeat:10]');
 
     expect(value.join('')).toMatch(/^\w \w \w \w \w \w \w \w \w \w$/);
   });
 
-  test('renders: [pick from:[numbers] count:3]', () => {
-    const value = render('[pick from:[numbers] count:3]');
+  test('renders: [pick from:[numbers] repeat:3]', () => {
+    const value = render('[pick from:[numbers] repeat:3]');
 
     expect(value.join('')).toMatch(/^\d \d \d$/);
   });
 
-  test('renders: [pick from:eish5 count:7]', () => {
-    const value = render('[pick from:eish5 count:7]');
+  test('renders: [pick from:eish5 repeat:7]', () => {
+    const value = render('[pick from:eish5 repeat:7]');
 
     expect(value.join('')).toMatch(/^\w \w \w \w \w \w \w$/);
   });
@@ -72,8 +72,8 @@ describe('Render CW', () => {
     expect(value.join('')).toMatch(/^g\w g\w g\w$/);
   });
 
-  test('renders: [pick from:[scramble from:[letters] count:2] count:7]', () => {
-    const value = render('[pick from:[scramble from:[letters] count:2] count:7]');
+  test('renders: [pick from:[scramble from:[letters] count:2] repeat:7]', () => {
+    const value = render('[pick from:[scramble from:[letters] count:2] repeat:7]');
     const set = value.join('').split(' ')
       .reduce((out, val) => out.add(val), new Set());
 

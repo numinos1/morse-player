@@ -61,7 +61,7 @@ export class Player extends Emitter {
   spaceTime: number;
   gapTime: number;
 
-  constructor(defaultOptions: Partial<TPlayerOptions>, mode = 'web') {
+  constructor(defaultOptions?: Partial<TPlayerOptions>, mode = 'web') {
     super();
     
     this.options = new Options({
