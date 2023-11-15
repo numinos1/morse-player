@@ -1,8 +1,8 @@
-import { scrambleList, randomEntry, toList, toNumber, countMap } from './utils';
+import { scrambleList, randomEntry, randCallsign, toList, toNumber, countMap } from './utils';
 import { states as stateList } from '../resources/states';
 import { letters as letterList } from '../resources/letters';
 import { numbers as numberList } from '../resources/numbers';
-import { ALPHA, NUMERIC, CALLSIGN_FORMATS } from '../resources/lists';
+//import { ALPHA, NUMERIC, CALLSIGN_FORMATS } from '../resources/lists';
 
 // ---------------------------------------------------------
 //                         Verbs
@@ -76,6 +76,16 @@ export function scramble(action: Record<string, any>): string[] {
     : list;
 }
 
+/**
+ * Select a random callsign
+ **/
+export function callsign(action: Record<string, any>): string {
+  const min = parseInt(action.min, 10) || 0;
+  const max = parseInt(action.max, 10) || 0;
+  
+  return randCallsign(min, max);
+}
+
 // ---------------------------------------------------------
 //                         Nouns
 // ---------------------------------------------------------
@@ -107,24 +117,3 @@ export function alphanumeric() {
   ));
 }
 
-// ---------------------------------------------------------
-//                   Callsigns
-// ---------------------------------------------------------
-
-// L{1,2}NL{1,3} (90%)
-// NLNL{1-3} (10%)
-export function callsign(min: number, max: number): string {
-  return randomEntry(
-      CALLSIGN_FORMATS.filter(format => 
-        format.length >= min && format.length <= max
-      )
-    )
-    .split('')
-    .map(format => 
-      randomEntry(
-        format === 'L' 
-          ? ALPHA 
-          : NUMERIC)
-    )
-    .join('');
-}

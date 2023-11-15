@@ -93,4 +93,19 @@ describe('Render CW', () => {
     ]);
   });
 
+  test('renders: [callsign min:? max:?]', () => {
+    const v1 = render('[callsign min:3 max:6]').join('');
+    expect(v1.length).toBeGreaterThanOrEqual(3);
+    expect(v1.length).toBeLessThanOrEqual(6);
+    expect(v1).toMatch(/^[A-Z]{1,2}\d[A-Z]{1,3}$/);
+    
+    const v2 = render('[callsign min:3 max:3]').join('');
+    expect(v2.length).toEqual(3);
+    expect(v2).toMatch(/^[A-Z]{1}\d[A-Z]{1}$/);
+
+    const v3 = render('[callsign min:6 max:6]').join('');
+    expect(v3.length).toEqual(6);
+    expect(v3).toMatch(/^[A-Z]{2}\d[A-Z]{3}$/);
+  });
+
 });

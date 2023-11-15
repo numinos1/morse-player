@@ -125,12 +125,16 @@ export function randCallsign(
   }
   return randomEntry(
       CALLSIGN_FORMATS.filter(format =>
-        format.length >= min && format.length <= max
+        format.length >= min
+          && format.length <= max
       )
     )
     .split('')
-    .map(format => 
-      randomEntry(format === 'L' ? ALPHA : NUMERIC)
+    .map(format => randomEntry(
+      format === 'L'
+        ? ALPHA :
+        NUMERIC
+      )
     )
     .join('');
 }
