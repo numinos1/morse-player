@@ -27,7 +27,7 @@ export interface TBufferEntry {
  * CW Script Class
  **/
 export class Script {
-  input: Function | string;
+  input: string | TScriptPlay;
   cbMethod: TScriptPlay;
   cbCount: number;
   buffer: TRenderResult[];
