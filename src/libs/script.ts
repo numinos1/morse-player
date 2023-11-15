@@ -8,6 +8,11 @@ import { render, TRenderResult } from './render';
  **/
 export type TScriptValue = (string | Record<string, any>);
 
+/**
+ * Play Callback
+ **/
+export type TScriptPlay = (count: number, buffer?: TRenderResult) => string;
+
 export interface TBufferEntry {
   index: number;
   startPercent?: number;
@@ -23,7 +28,7 @@ export interface TBufferEntry {
  **/
 export class Script {
   input: Function | string;
-  cbMethod: Function;
+  cbMethod: TScriptPlay;
   cbCount: number;
   buffer: TRenderResult[];
   index: number;
@@ -33,7 +38,7 @@ export class Script {
   /**
    * Constructor
    **/
-  constructor(input: string | Function) {
+  constructor(input: string | TScriptPlay) {
     this.input = input;
 
     this.cbMethod = null; 
@@ -41,7 +46,7 @@ export class Script {
 
     if (typeof input === 'function') {
       this.cbMethod = input;
-      input = this.cbMethod(this.cbCount++) as string;
+      input = this.cbMethod(this.cbCount++);
     }
     this.buffer = render(input);
     this.index = 0;

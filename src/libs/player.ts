@@ -1,5 +1,5 @@
 import vocabulary from '../resources/vocabulary';
-import { Script } from './script';
+import { Script, TScriptPlay } from './script';
 import { Options } from './options';
 import { Schedule } from './schedule';
 import { Emitter } from './emitter';
@@ -144,7 +144,7 @@ export class Player extends Emitter {
 
   // NOTE: Must init audio within a click event
   play(
-    text: string | Function,
+    input: string | TScriptPlay,
     options?: Record<string, any>
   ) {
     this.stop();
@@ -154,7 +154,7 @@ export class Player extends Emitter {
         this.options.setScript(options)
       );
     }
-    this.script = new Script(text);
+    this.script = new Script(input);
 
     if (!this.audio) {
       this.audio = this._initAudio(
