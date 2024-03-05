@@ -176,6 +176,7 @@ describe('Script CW', () => {
     });
     script.rollback({
       index: 1, 
+      charIndex: 0,
       name: "play", 
       value: "b"
     });

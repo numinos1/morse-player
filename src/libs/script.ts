@@ -15,6 +15,7 @@ export type TScriptPlay = (count: number, buffer?: TRenderResult) => string;
 
 export interface TBufferEntry {
   index: number;
+  charIndex: number;
   startPercent?: number;
   endPercent?: number;
   startTime?: number;
@@ -31,6 +32,7 @@ export class Script {
   cbMethod: TScriptPlay;
   cbCount: number;
   buffer: TRenderResult[];
+  charIndices: number[];
   index: number;
   playTotal: number;
   playCount: number;
@@ -49,10 +51,27 @@ export class Script {
       input = this.cbMethod(this.cbCount++);
     }
     this.buffer = render(input);
+    this.charIndices = this._toCharIndices(this.buffer);
     this.index = 0;
 
     this.playTotal = this._getPlayTotal();
     this.playCount = this._getPlayCount();
+  }
+
+  /**
+   * Map character Indices 
+   * 
+   * - Buffer offests don't account for actions
+   * - First character offset starts at 1
+   * - Actions have an offest of 0
+   */
+  _toCharIndices(buffer: TRenderResult[]) {
+    let charIndex = 1;
+
+    return buffer.map(entry =>
+      (typeof entry === 'string' ? charIndex++ : 0),
+      []
+    );
   }
 
   /**
@@ -101,6 +120,7 @@ export class Script {
 
       const entry = { 
         index: this.index, 
+        charIndex: this.charIndices[this.index],
         startPercent: this.playTotal
           ? (this.playCount / this.playTotal) * 100
           : 0,

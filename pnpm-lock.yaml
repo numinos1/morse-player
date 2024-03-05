@@ -4,6 +4,7 @@ specifiers:
   '@babel/core': ^7.21.3
   '@babel/preset-env': ^7.20.2
   '@babel/preset-typescript': ^7.23.3
+  '@ham2k/lib-country-files': ^0.6.20231104
   '@jest/globals': ^29.7.0
   '@types/node': 20.1.7
   '@types/webaudioapi': ^0.0.27
@@ -14,15 +15,14 @@ specifiers:
   ts-node: ^10.9.1
   typescript: ~5.0.4
 
-dependencies:
-  '@types/webaudioapi': 0.0.27
-
 devDependencies:
   '@babel/core': 7.21.3
   '@babel/preset-env': 7.20.2_@babel+core@7.21.3
   '@babel/preset-typescript': 7.23.3_@babel+core@7.21.3
+  '@ham2k/lib-country-files': 0.6.20231104
   '@jest/globals': 29.7.0
   '@types/node': 20.1.7
+  '@types/webaudioapi': 0.0.27
   babel-jest: 29.5.0_@babel+core@7.21.3
   jest: 29.5.0_o64cudh4u7red7hklaqj7qxc6i
   prettier: 2.8.8
@@ -1443,6 +1443,16 @@ packages:
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
 
+  /@ham2k/lib-country-files/0.6.20231104:
+    resolution: {integrity: sha512-JcGRG+FRXqFeLBPdnc2YYit0Mp2Oz6XC6uauJviokbdyh2f3/c88/IRT0pazAyPrjpdQ7oa+RT5Ds30r7Blbuw==}
+    dependencies:
+      '@ham2k/lib-cqmag-data': 0.0.14
+    dev: true
+
+  /@ham2k/lib-cqmag-data/0.0.14:
+    resolution: {integrity: sha512-8MUzTuT1OLxAo34iq+lzexeYoKX4uMCcIisrWVzBcNCL0cCcCBmgSCPYHtJPg2T2Kb1X1BVucX0CxQwuBiAvBw==}
+    dev: true
+
   /@istanbuljs/load-nyc-config/1.1.0:
     resolution: {integrity: sha512-VjeHSlIzpv/NyD3N0YuHfXOPDIixcA1q2ZV98wsMqcYlPmv2n3Yb2lYP9XMElnaFVXg5A7YLTeLu6V84uQDjmQ==}
     engines: {node: '>=8'}
@@ -1886,7 +1896,7 @@ packages:
 
   /@types/webaudioapi/0.0.27:
     resolution: {integrity: sha512-UWVaT2JkjAMU0x9BHWE8Lm4cFfVAzd5Av1v+b7phOXBY047prADh/dz+VW5SG0CxVutcE7DXtR9rTKFq76ODaQ==}
-    dev: false
+    dev: true
 
   /@types/yargs-parser/21.0.0:
     resolution: {integrity: sha512-iO9ZQHkZxHn4mSakYV0vFHAVDyEOIJQrV2uZ06HxEPcx+mt8swXoZHIbaaJ2crJYFfErySgktuTZ3BeLz+XmFA==}
