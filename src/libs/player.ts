@@ -1,5 +1,5 @@
 import vocabulary from '../resources/vocabulary';
-import { Script, TScriptPlay } from './script';
+import { Script, TBufferEntry, TScriptPlay } from './script';
 import { Options } from './options';
 import { Schedule } from './schedule';
 import { Emitter } from './emitter';
@@ -193,17 +193,24 @@ export class Player extends Emitter {
 
   _onTick() {
     const currentTime = this.audio.getTime();
-    let event;
+    let event: TBufferEntry;
 
-    // Fill schedule for next period
+    // Schedule events until buffer is full
     while (this.schedule.canPush(currentTime)
       && (event = this.script.getNext(true)))
     {
-      (event.name === 'set')
-        ? this.schedule.push(event)
-        : this.schedule.push(event, (time: number) => 
-            this._playChar(event, time) + this.gapTime
-          );
+      const startTime = this.schedule.tailTime;
+      let endTime = startTime;
+
+      if (event.name !== 'set') {
+        endTime = this._playChar(event, startTime)
+          + this.gapTime;
+      }
+      this.schedule.push({
+        ...event,
+        startTime,
+        endTime
+      });
     }
     // Re-schedule tick if pending work
     if (this.schedule.advance()

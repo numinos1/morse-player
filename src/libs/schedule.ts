@@ -17,9 +17,9 @@ import { TBufferEntry } from './script';
 export class Schedule {
   queue: TBufferEntry[];
   event: TBufferEntry;
-  time: number;
-  ending: number;
-  duration: number;
+  headTime: number;
+  tailTime: number;
+  queueSize: number;
   player: Player;
   
   /**
@@ -29,10 +29,9 @@ export class Schedule {
     this.queue = [];
     this.event = null;
 
-    this.time = 0; 
-    this.ending = 0;
-
-    this.duration = 0.1; 
+    this.headTime = 0;      // current playback time
+    this.tailTime = 0;      // end of last scheduled event
+    this.queueSize = 1;     // target size of schedule (tailTime - headTime)
 
     this.player = player;
   }
@@ -45,8 +44,8 @@ export class Schedule {
 
     this.queue = [];
     this.event = null;
-    this.time = 0;
-    this.ending = 0;
+    this.headTime = 0;
+    this.tailTime = 0;
 
     return next;
   }
@@ -54,32 +53,21 @@ export class Schedule {
   /**
    * Can Push Time?
    **/
-  canPush(time: number): boolean {
-    this.time = time;
+  canPush(currentTime: number): boolean {
+    this.headTime = currentTime;
 
-    if (!this.ending) {
-      this.ending = time + 0.1; // account for stop backoff
+    if (!this.tailTime) {
+      this.tailTime = currentTime;
     }
-    return (this.ending < (this.time + this.duration));
+    return (this.tailTime < (this.headTime + this.queueSize));
   }
 
   /**
    * Push entry and return endTime
    **/
-  push(entry: TBufferEntry, cb?: Function): number {
-    const startTime = this.ending;
-
-    this.ending = cb 
-      ? cb(this.ending) 
-      : this.ending;
-
-    this.queue.push({
-      ...entry,
-      startTime: startTime,
-      endTime: this.ending
-    });
-
-    return this.ending;
+  push(entry: TBufferEntry) {
+    this.queue.push(entry);
+    this.tailTime = entry.endTime;
   }
 
   /**
@@ -98,7 +86,7 @@ export class Schedule {
    **/
   _endCurrentEvent(): boolean {
     if (this.event
-      && this.event.endTime <= this.time
+      && this.event.endTime <= this.headTime
     ) {
       if (this.event.name === 'play') {
         this.player.emit('char:end', this.event);
@@ -115,7 +103,7 @@ export class Schedule {
    **/ 
   _startNextEvent() {
     if (this.queue.length
-      && this.queue[0].startTime <= this.time
+      && this.queue[0].startTime <= this.headTime
     ) {
       this.event = this.queue.shift();
 

@@ -10,7 +10,6 @@ const cStations = parseCountryStations('country-stations.txt');
 
 const prefixList = parsePrefixList('prefix-list.txt');
 const prefixMap = refinePrefixList(prefixList);
-console.log(cStations);
 
 // cPrefixes.sort((a, b) => {
 //   if (a.continent > b.continent) return 1;
