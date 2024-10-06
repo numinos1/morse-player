@@ -1,6 +1,6 @@
 import vocabulary from '../resources/vocabulary';
 import { Script, TBufferEntry, TScriptPlay } from './script';
-import { Options } from './options';
+import { Options, TPlayerOptions } from './options';
 import { Schedule } from './schedule';
 import { Emitter } from './emitter';
 import { WebAudio } from './audio/web-audio';
@@ -8,38 +8,23 @@ import { MockAudio } from './audio/mock-audio';
 import { TAudioOptions } from './audio/base-audio';
 import { toNumber } from './utils';
 
-/**
- * Player Options
- **/
-export interface TPlayerOptions {
-  volume: number;
-  gain: number;
-  freq: number;
-  q: number;
-  wpm: number;
-  eff: number;
-  color: string;
-}
-
 const DOT_SIZE = 1; // used for dot and tone space
 const DASH_SIZE = 3; // used for dash and char space
 const SPACE_SIZE = 4; // actually 7 (subtract 3 for trailing char space)
 
-const SIZES = { 
-  '.': DOT_SIZE, 
+const SIZES = {
+  '.': DOT_SIZE,
   '-': DASH_SIZE,
-  ' ': SPACE_SIZE 
+  ' ': SPACE_SIZE
 };
 
-const DEFAULT_OPTIONS = {
+const DEFAULT_OPTIONS: TPlayerOptions = {
   volume: 0.7,
   gain: 0.5,
   freq: 600,
   q: 10,
-
   wpm: 25,
   eff: 25,
-
   color: '#fff'
 };
 
@@ -63,7 +48,7 @@ export class Player extends Emitter {
 
   constructor(defaultOptions?: Partial<TPlayerOptions>, mode = 'web') {
     super();
-    
+
     this.options = new Options({
       ...DEFAULT_OPTIONS,
       ...defaultOptions
@@ -111,10 +96,10 @@ export class Player extends Emitter {
     const { combined } = options;
     const wpm = toNumber(combined.wpm) || 20;
     let eff = toNumber(combined.eff) || 20;
-    
+
     //if (eff < wpm) eff = wpm;
-    
-    const effDotLen = (1.2 / eff) 
+
+    const effDotLen = (1.2 / eff)
       * (2.5 - 1.5 / (Math.pow((wpm / eff), 1.25)));
 
     this.audio && this.audio.setAudio(combined);
@@ -137,7 +122,7 @@ export class Player extends Emitter {
   init() {
     if (!this.audio) {
       this.audio = this._initAudio(
-        this.options.get() as TAudioOptions // Typescript Hack!!!!
+        this.options.get().combined
       );
     }
   }
@@ -145,7 +130,7 @@ export class Player extends Emitter {
   // NOTE: Must init audio within a click event
   play(
     input: string | TScriptPlay,
-    options?: Record<string, any>
+    options?: Partial<TPlayerOptions>
   ) {
     this.stop();
 
@@ -158,7 +143,7 @@ export class Player extends Emitter {
 
     if (!this.audio) {
       this.audio = this._initAudio(
-        this.options.get() as TAudioOptions // Typescript Hack!!!
+        this.options.get().combined
       );
     }
     this.isPlaying = true;
@@ -166,12 +151,18 @@ export class Player extends Emitter {
     this._onTick();
   }
 
-  _initAudio(opts: TAudioOptions) {
+  _initAudio(opts: Partial<TPlayerOptions>) {
+    const audioOptions: TAudioOptions = {
+      volume: opts.volume,
+      freq: opts.freq,
+      gain: opts.gain,
+      q: opts.q
+    }
     switch (this.mode) {
-      case 'web': return new WebAudio(opts);
-      case 'server': return new WebAudio(opts);
-      case 'mock': return new MockAudio(opts);
-      default: throw new Error('invlaid audio driver');
+      case 'web': return new WebAudio(audioOptions);
+      case 'server': return new WebAudio(audioOptions);
+      case 'mock': return new MockAudio(audioOptions);
+      default: throw new Error('invalid audio driver');
     }
   }
 
@@ -255,7 +246,7 @@ export class Player extends Emitter {
         this.isPaused = false;
         this.emit('play:resume', this.id);
         this._onTick();
-      } 
+      }
       else {
         this.isPaused = true;
         this._stopTick();

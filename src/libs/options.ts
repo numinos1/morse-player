@@ -1,16 +1,37 @@
 /**
  * Player Options
  **/
+export interface TPlayerOptions {
+  volume: number;
+  gain: number;
+  freq: number;
+  q: number;
+  wpm: number;
+  eff: number;
+  color: string;
+}
+
+export interface TScriptOptions extends TPlayerOptions {
+  force: boolean;
+}
+
+export interface TOptions {
+  defaults: Partial<TPlayerOptions>;
+  user: Partial<TPlayerOptions>;
+  script: Partial<TScriptOptions>;
+  combined: Partial<TPlayerOptions>;
+}
+
 export class Options {
-  defaults: Record<string, any>;
-  user: Record<string, any>;
-  script: Record<string, any>;
-  options: Record<string, any>;
+  defaults: Partial<TPlayerOptions>;
+  user: Partial<TPlayerOptions>;
+  script: Partial<TScriptOptions>;
+  options: TOptions;
 
   /**
    * Constructor
    **/
-  constructor(opts: Record<string, any>) {
+  constructor(opts: Partial<TPlayerOptions>) {
     this.defaults = opts ? this._prune(opts) : {};
     this.user = {};
     this.script = {};
@@ -18,11 +39,11 @@ export class Options {
   }
 
   /**
-   * Set User Options 
+   * Set User Options
    * - Incremental updates
    * - Prune undefined & null values
    **/
-  setUser(opts: Record<string, any>) {
+  setUser(opts: Partial<TPlayerOptions>) {
     this.user = this._prune({
       ...this.user,
       ...opts
@@ -33,12 +54,12 @@ export class Options {
   }
 
   /**
-   * Set Script Options 
+   * Set Script Options
    * - Clobber or incremental updates
    * - Prune undefined & null values
    **/
   setScript(
-    opts: Record<string, any> = {},
+    opts: Partial<TScriptOptions> = {},
     isCombine: boolean = false
   ) {
     this.script = isCombine
@@ -53,14 +74,14 @@ export class Options {
   /**
    * Get All Options
    **/
-  get(): Record<string, any> {
+  get() {
     return this.options;
   }
 
   /**
    * Combine all Options
    **/
-  reduce() {
+  reduce(): TOptions {
     return {
       defaults: this.defaults,
       user: this.user,

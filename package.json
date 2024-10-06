@@ -1,6 +1,6 @@
 {
   "name": "morse-player",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Browser morse code audio player",
   "author": "Andrew Bunker",
   "license": "MIT",
