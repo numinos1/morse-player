@@ -25,10 +25,6 @@ export class WebAudio extends BaseAudio {
    **/
   constructor(opts: TAudioOptions) {
     super(opts);
-    // this.q = opts.q || 10;
-    // this.freq = opts.freq || 600;
-    // this.gain = opts.gain || 0.5;
-    // this.volume = opts.volume || 1;
 
     this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
@@ -82,12 +78,12 @@ export class WebAudio extends BaseAudio {
     this.biquadFilter.connect(this.gainNodePlay);
     this.gainNodePlay.connect(this.audioCtx.destination);
 
-    this.gain = 0.5;
     this.gainNode.gain.value = 0;
     this.gainNodePlay.gain.value = 1;
     this.gainNodeLimiter.gain.value = 0.55;
 
     this.oscillator.start();
+    this.setAudio(opts);
   }
 
   /**
@@ -168,7 +164,7 @@ export class WebAudio extends BaseAudio {
 
     if (volume) {
       this.gainNode.gain.setValueCurveAtTime(
-        backoff(volume, 0), 
+        backoff(volume, 0),
         nowTime, 0.1
       );
     }
