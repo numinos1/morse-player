@@ -1,4 +1,4 @@
-import { CALLSIGN_FORMATS, ALPHA, NUMERIC } from "../resources/lists";
+import { CALLSIGN_FORMATS, CALLSIGN_VOCABS, ALPHA, NUMERIC } from "../resources/lists";
 
 /**
  * Generate an exponential backoff curve array
@@ -117,24 +117,56 @@ export function toNumber(value: any): number {
  * - NLNL{1-3} (10%)
  **/
 export function randCallsign(
-  min: number = 3,
-  max: number = 0
+  min: number = 0,
+  max: number = 0,
+  vocabs: string = ''
 ): string {
-  if (max <= min) {
-    max = min;
+  let formats: string[] = [];
+
+  // Add formats for min & max
+  if (min || max) {
+    if (!max) min = max;
+    if (!min) max = min;
+    if (max <= min) max = min;
+
+    CALLSIGN_FORMATS.forEach(format => {
+      if (format.length >= min
+        && format.length <= max
+      ) {
+        formats.push(format);
+      }
+    });
   }
-  return randomEntry(
-      CALLSIGN_FORMATS.filter(format =>
-        format.length >= min
-          && format.length <= max
-      )
-    )
+
+  // Add formats for vocabs
+  if (vocabs) {
+    vocabs.toLowerCase()
+      .split(/[^a-z0-9_-]+/)
+      .forEach(vocab => {
+        const format = CALLSIGN_VOCABS[vocab];
+
+        if (format) {
+          formats.push(format);
+        }
+      });
+  }
+
+  // Pick a random format;
+  const format = randomEntry(formats);
+
+  // Return empty callsign
+  if (!format) {
+    return '';
+  }
+  // Pick a callsign from vocab
+  if (!/^[LN]+$/.test(format)) {
+    return randomEntry(format.split(','));
+  }
+  // Construct callsign from format
+  return format
     .split('')
-    .map(format => randomEntry(
-      format === 'L'
-        ? ALPHA :
-        NUMERIC
-      )
+    .map(format =>
+      randomEntry(format === 'L' ? ALPHA : NUMERIC)
     )
     .join('');
 }

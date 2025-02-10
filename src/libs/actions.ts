@@ -78,12 +78,17 @@ export function scramble(action: Record<string, any>): string[] {
 
 /**
  * Select a random callsign
+ * example: [callsign min:2 max:5] for a range of vocabs
+ * example: [callsign vocab:1x1] for a specific vocab
+ * example: [callsign vocab:1x1,2x2,complex] for multiple vocabs
+ * vocabs: complex, 1x1, 1x2, 1x3, 2x1, 2x2, 2x3
  **/
 export function callsign(action: Record<string, any>): string {
   const min = parseInt(action.min, 10) || 0;
   const max = parseInt(action.max, 10) || 0;
+  const vocab: string = action.vocab || '';
   
-  return randCallsign(min, max);
+  return randCallsign(min, max, vocab);
 }
 
 // ---------------------------------------------------------
