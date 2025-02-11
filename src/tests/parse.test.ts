@@ -163,4 +163,14 @@ describe('Parse CW', () => {
     }]);
   });
 
+  test('parses: [callsign vocab:1x3]', () => {
+    expect(parse('[callsign vocab:1x3,complex]')).toEqual([{
+      as: "",
+      name: "callsign",
+      value: {
+        vocab: "1x3,complex",
+      },
+    }]);
+  });
+
 });

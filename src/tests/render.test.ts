@@ -108,4 +108,24 @@ describe('Render CW', () => {
     expect(v3).toMatch(/^[A-Z]{2}\d[A-Z]{3}$/);
   });
 
+  test('renders: [callsign vocab:1x3]', () => {
+    const v1 = render('[callsign vocab:1x3]').join('');
+    expect(v1).toMatch(/^[A-Z]\d[A-Z]{3}$/);
+  });
+
+  test('renders: [callsign vocab:2x2]', () => {
+    const v1 = render('[callsign vocab:2x2]').join('');
+    expect(v1).toMatch(/^[A-Z]{2}\d[A-Z]{2}$/);
+  });
+
+  test('renders: [callsign vocab:2x2,2x3]', () => {
+    const v1 = render('[callsign vocab:2x2,2x3]').join('');
+    expect(v1).toMatch(/^[A-Z]{2}\d[A-Z]{2,3}$/);
+  });
+
+  test('renders: [callsign vocab:1x3,2x2,2x3,complex]', () => {
+    const v1 = render('[callsign vocab:1x3,2x2,2x3,complex]').join('');
+    expect(v1).toMatch(/^[A-Z]{1,2}\d[A-Z]{2,3}$/);
+  });
+
 });

@@ -141,6 +141,7 @@ export function randCallsign(
   // Add formats for vocabs
   if (vocabs) {
     vocabs.toLowerCase()
+      .replace(/\n/g, '')
       .split(/[^a-z0-9_-]+/)
       .forEach(vocab => {
         const format = CALLSIGN_VOCABS[vocab];
